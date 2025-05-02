@@ -54,9 +54,9 @@ public partial class vPrincipal : ContentPage
 
         try
         {
-            // Guardar en archivo de texto
+            
             string ruta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Datos.txt");
-            File.AppendAllText(ruta, contenido); // Agrega al final del archivo
+            File.AppendAllText(ruta, contenido); 
             lblResultado.Text = $"Datos guardados correctamente en:\n{ruta}";
         }
         catch (Exception ex)
