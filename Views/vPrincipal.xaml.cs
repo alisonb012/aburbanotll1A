@@ -27,7 +27,11 @@ public partial class vPrincipal : ContentPage
         {
             DisplayAlert("Error", "Por favor ingrese todos los campos ", "Ok");
         }
-
+        if (!Regex.IsMatch(apellido ?? "", @"[a-zA-Z\s]+$"))
+        {
+            lblResultado.Text = "Apellido solo debe contener letras.";
+            return;
+        }
         if (!Regex.IsMatch(nombre ?? "", @"^[a-zA-Z\s]+$"))
         {
             lblResultado.Text = "Nombre solo debe contener letras.";
@@ -40,18 +44,19 @@ public partial class vPrincipal : ContentPage
             return;
         }
 
+        if (!Regex.IsMatch(telefono ?? "", @"^\d+$"))
+        {
+            lblResultado.Text = "El telefono solo debe contener números.";
+            return;
+        }
+
         if (correo != confirmarCorreo)
         {
             lblResultado.Text = "Los correos no coinciden.";
             return;
         }
 
-        if (!Regex.IsMatch(apellido ?? "", @"[a-zA-Z\s]+$"))
-        {
-            lblResultado.Text = "Nombre solo debe contener letras.";
-            return;
-        }
-
+       
         try
         {
             
